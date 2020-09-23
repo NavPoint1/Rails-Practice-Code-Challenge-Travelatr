@@ -1,0 +1,25 @@
+<H1><%= @blogger.name %></H1>
+
+<br>
+
+<div>Total Likes: <%= @blogger.total_likes %></div>
+
+<br>
+
+<% if @top_post %>
+    <div>Featured Post: <%= link_to @top_post.title, post_path(@top_post) %></div>
+<% else %>
+    <div>No posts to display!</div>
+<% end %>
+
+<br>
+
+<h3>Top 5 Destinations</h3>
+
+<ul>
+    <% @blogger.frequent_destinations.each do |destination| %>
+        <li>
+            <%= link_to destination.name, destination_path(destination) %>
+        </li>
+    <% end %>
+</ul>
